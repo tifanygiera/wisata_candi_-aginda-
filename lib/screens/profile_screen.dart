@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen>{
                 ),
               ),
               //TODO: 3. Buat bagian ProfileInfo yang berisikan info profil
-              SizedBox(height: 20),
+               SizedBox(height: 20),
               Divider(color: Colors.deepPurple[100]),
               SizedBox(height: 4),
               Row(
@@ -79,20 +79,50 @@ class _ProfileScreenState extends State<ProfileScreen>{
               SizedBox(height: 4),
               Row(
                 children: [
-                  Icon(Icons.person, color: Colors.blue),
-                  SizedBox(width: 8),
-                  Text('Nama', style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold,
-                  ),),
+                  SizedBox(width: MediaQuery.of(context).size.width / 3,
+                    child: Row(
+                      children: [
+                        Icon(Icons.person, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text('Nama', style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold,
+                        ),),
+                      ],
+                    ),),
+                  Expanded(
+                    child: Text(': $fullName', style: TextStyle(
+                        fontSize: 18),),),
+                  if(isSignedIn) Icon(Icons.edit),
                 ],
               ),
-              //TODO: 4. Buaut ProfileActions yang berisikan textButton sign in/ sign out
+              SizedBox(height: 4),
+              Divider(color: Colors.deepPurple[100]),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  SizedBox(width: MediaQuery.of(context).size.width / 3,
+                    child: Row(
+                      children: [
+                        Icon(Icons.person, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text('Nama', style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold,
+                        ),),
+                      ],
+                    ),),
+                ],
+              ),
+              // TODO: 4. Buat ProfileActions yang berisi TextButton sign in/
+              SizedBox(height: 4),
+              Divider(color: Colors.deepPurple[100]),
+              SizedBox(height: 20),
+              isSignedIn ? TextButton(onPressed: (){}, child: Text('Sign Out'))
+                  : TextButton(onPressed: (){}, child: Text('Sign In')),
             ],
           ),
-        )
-    )
-    ],
-    ),
-    )
+        ),
+          ],
+        ),
+    );
   }
 }
