@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen>{
                 ),
               ),
               //TODO: 3. Buat bagian ProfileInfo yang berisikan info profil
-              SizedBox(height: 20),
+               SizedBox(height: 20),
               Divider(color: Colors.deepPurple[100]),
               SizedBox(height: 4),
               Row(
